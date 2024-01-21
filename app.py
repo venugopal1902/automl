@@ -2,8 +2,6 @@ from operator import index
 import streamlit as st
 import plotly.express as px
 from pycaret.classification import setup, compare_models, pull, save_model, load_model
-# from pydantic_settings import BaseSettings
-# from pydantic import BaseModel, Field, PrivateAttr
 import ydata_profiling
 import pandas as pd
 import xgboost
@@ -41,7 +39,7 @@ if choice == "Modelling":
         best_model = compare_models()
         compare_df = pull()
         st.dataframe(compare_df)
-        save_model(best_model, 'best_model.pkl')
+        save_model(best_model, 'best_model')
 
 if choice == "Download": 
     with open('best_model.pkl', 'rb') as f: 
